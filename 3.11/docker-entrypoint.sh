@@ -59,9 +59,6 @@ if [ "$1" = 'cassandra' ]; then
 			sed -ri 's/^('"$rackdc"'=).*/\1 '"$val"'/' "$CASSANDRA_CONFIG/cassandra-rackdc.properties"
 		fi
 	done
-
-	sed -i -e 's/AllowAllAuthenticator/PasswordAuthenticator/g' "$CASSANDRA_CONFIG/cassandra.yaml"
-	sed -i -e 's/AllowAllAuthorizer/CassandraAuthorizer/g' "$CASSANDRA_CONFIG/cassandra.yaml"
 fi
 
 exec "$@"
